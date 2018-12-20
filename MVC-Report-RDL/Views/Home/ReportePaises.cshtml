@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MVC_Report_RDL.Models.Paises>
+
+@{
+    ViewBag.Title = "ReportePaises";
+}
+
+<h2>ReportePaises</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Pais
+        </th>
+        <th>
+            Moneda
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moneda)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div><a href="@Url.Action("VerReporte",new { id = "PDF" })">PDF</a></div>
+<div><a href="@Url.Action("VerReporte",new { id = "Excel" })">Excel</a></div>
+<div><a href="@Url.Action("VerReporte",new { id = "Word" })">Word</a></div>
+<div><a href="@Url.Action("VerReporte",new { id = "Image" })">Imagen</a></div>
+
